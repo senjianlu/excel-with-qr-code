@@ -78,7 +78,9 @@ def main():
                 new_sheet.insert_bitmap(qrcode_img_path, row, sheet.ncols, scale_x=0.55, scale_y=0.11, x=1, y=1)
             # 2.7 在最后一列写 6 个回车
             new_sheet.write(row, sheet.ncols, "\r" * 4)
-        # 2.8 保存新 Excel
+            # 2.8 打印进度
+            print("已完成 {} / {} 行".format(row, sheet.nrows))
+        # 2.9 保存新 Excel
         new_excel.save(f"带二维码的{excel_file_name}")
 
 
